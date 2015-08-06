@@ -1,0 +1,29 @@
+*.DS_Store
+*~
+
+#node default
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules
+
+# From Mean Stack
+bower_components
+.DS_Store
+.nodemonignore
+node_modules
+migrations/
+*.local
+bin
+docs
+example/bower_components
+example/node_modules

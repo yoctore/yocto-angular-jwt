@@ -1,0 +1,31 @@
+{
+  "name": "angular-http-encrypt",
+  "version": "1.0.0",
+  "private" : true,
+  "author": {
+    "name": "Yocto SAS <http://www.yocto.re>"
+   },
+   "contributors": [
+    {
+      "name": "BALARD Cédric",
+      "email": "cedric@yocto.re"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "www.yocto.re",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "main" : "dist/yocto-angular-http-encrypt.min.js",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh:://git@lab.yocto.digital:yocto-angular-services/yocto-angular-http-encrypt.git"
+  },
+}
