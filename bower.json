@@ -55,5 +55,5 @@
   "dependencies": {
     "angular-jwt": "~0.0.9",
     "angular-local-storage": "~0.2.3"
-  },
+  }
 }
