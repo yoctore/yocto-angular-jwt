@@ -1,32 +1,36 @@
-# yocto-angular-http-encrypt
+## Overview
 
-> angular factory to auto encrypt-decrypt base64
+This module provide an utility tools for manage access token based on jwt
+if you use [yocto-jwt](https://www.npmjs.com/package/yocto-jwt) npm package on our serveur.
 
-This factory create an Angular Interceptor, for http request (In and Out).
-[Click here for more details about Angular Interceptor](https://docs.angularjs.org/api/ng/service/$http)
+## Motivation 
 
-This Interceptor catch each input and output request, and encrypt or decrypt data.
+We designed and wrote this module to have a front-end tools that can manage automatically our
+jwt token process build with [yocto-jwt](https://www.npmjs.com/package/yocto-jwt) package.
 
+## How it works ?
 
-## Getting started
+For each http request an access token was sent with each request.
 
-Just import service like :
-```jade
-  script(src='/dist/yocto-angular-http-encrypt.min.js')
+If you don't have a valid access token your access will be rejected.
+
+The access token was refresh from the server each time your set in `refreshToken` property config.
+
+For more details about this access token please read [yocto-jwt](https://www.npmjs.com/package/yocto-jwt) README
+
+## How to use
+
+1. First include our dist file in your html header
+2. Include in your angular apps our services `yocto-angular-jwt` like : 
+
+```javascript
+angular.module('YOUR-APP', [ 'yocto-angular-jwt' ]);
+// Your code
 ```
-
-And load it on your angular apps :
-```js
-  var myApp = angular.module('myApp', ['yocto-encrypt-factory']);
+3. Set your refresh token url and the associated delay like this : 
+```javascript
+angular.module('YOUR-APP', [ 'yocto-angular-jwt' ])
+.config(['jwtConstantProvider', function (jwtConstantProvider) {
+  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'YOUR-URL' });
+}])
 ```
-
-## More details
-
-### Output request
-
-When a request was send to server, each data in **request.data** will be encoded in base64
-
-### Input request
-
-When a request was send, the response will be decoded. Each data in **response.data** will be decrypted.
-**NB :** before make a decryption, a test will be do to check if data is an base64 encoded.

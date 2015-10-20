@@ -9,13 +9,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "body-parser": "^1.13.3",
     "cors": "^2.7.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "lodash": "^3.10.0",
-    "yocto-logger": "git+ssh://git@lab.yocto.digital:yocto-node-modules/yocto-logger.git",
-    "yocto-http-encrypt": "git+ssh://git@lab.yocto.digital:yocto-node-modules/yocto-http-encrypt.git"
+    "lodash": "^3.10.0"
   }
 }

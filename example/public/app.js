@@ -1,10 +1,11 @@
 
 
 // declare a module
-var myApp = angular.module('myApp', ['yocto-encrypt-factory']);
-
-
-myApp.controller('formContr', ['$scope', '$http', function($scope, $http) {
+angular.module('myApp', [ 'yocto-angular-jwt' ])
+.config(['jwtConstantProvider', function (jwtConstantProvider) {
+  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'http://localhost:3000/token/refresh' });
+}])
+.controller('formContr', ['$scope', '$http', function($scope, $http) {
   $scope.user = {};
 
   $scope.send = function(user) {

@@ -1,31 +1,59 @@
 {
-  "name": "angular-http-encrypt",
+  "name": "yocto-angular-jwt",
   "version": "1.0.0",
-  "private" : true,
-  "author": {
-    "name": "Yocto SAS <http://www.yocto.re>"
-   },
-   "contributors": [
+  "description": "An angular utility service to manage access token based on jwt for yocto-jwt node package",
+  "main": "dist/yocto-angular-jwt.min.js",
+  "moduleType" : "node",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "tests",
+    "src"
+  ],
+  "keywords": [
+    "angular",
+    "utility",
+    "jwt",
+    "decode",
+    "encode",
+    "token",
+    "service",
+    "access"
+  ],
+  "authors": {
+    "name": "Yocto SAS",
+    "email": "technique@yocto.re",
+    "url": "http://www.yocto.re"
+  },
+  "contributors": [
+    {
+      "name": "ROBERT Mathieu",
+      "email": "mathieu@yocto.re"
+    },
     {
       "name": "BALARD Cédric",
       "email": "cedric@yocto.re"
     }
   ],
-  "license": "MIT",
-  "homepage": "www.yocto.re",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "src"
+  "maintainers": [
+    {
+      "name": "ROBERT Mathieu",
+      "email": "mathieu@yocto.re"
+    }
   ],
-  "main" : "dist/yocto-angular-http-encrypt.min.js",
-  "dependencies": {
-  },
   "repository": {
     "type": "git",
-    "url": "git+ssh:://git@lab.yocto.digital:yocto-angular-services/yocto-angular-http-encrypt.git"
+    "url": "https://gitlab.com/yocto-angular-services/yocto-angular-jwt.git"
+  },
+  "bugs": "https://gitlab.com/yocto-angular-services/yocto-angular-jwt/issues",
+  "resolutions" : {
+    "angular" : "^1.5.0"
+  },
+  "dependencies": {
+    "angular-jwt": "~0.0.9",
+    "angular-local-storage": "~0.2.3"
   },
 }
