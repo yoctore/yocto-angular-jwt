@@ -28,6 +28,7 @@ angular.module('YOUR-APP', [ 'yocto-angular-jwt' ]);
 // Your code
 ```
 3. Set your refresh token url and the associated delay like this : 
+
 ```javascript
 angular.module('YOUR-APP', [ 'yocto-angular-jwt' ])
 .config(['jwtConstantProvider', function (jwtConstantProvider) {
