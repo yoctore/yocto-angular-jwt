@@ -20,6 +20,10 @@ For more details about this access token please read [yocto-jwt](https://www.npm
 
 ## How to use
 
+```bash
+bower install --save yocto-angular-jwt
+```
+
 1. First include our dist file in your html header
 2. Include in your angular apps our services `yocto-angular-jwt` like : 
 
