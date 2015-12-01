@@ -153,23 +153,26 @@ function (jwtHelper, localStorageService, jwtConstant) {
      * @return {String} decoded token
      */
     decode        : function (response) {
-      // check if url if not the refresh url
-      if (response.config.url !== jwtConstant.refreshUrl) {
-        // is a correct type ??
-        if (angular.isArray(response.data)) {
-          // default statement
-          var decoded = jwtHelper.decodeToken(response.data[0]);
-          // is object ?
-          if (angular.isObject(decoded)) {
-            // list of omit items
-            var omits = [ 'iss', 'sub', 'aud', 'exp', 'nbf', 'iat', 'jti' ];
-            // remove non needed key
-            angular.forEach(omits, function(value) {
-              // remove item
-              delete decoded[value];
-            });
-            // set value
-            response.data = decoded;
+      // has response config ?
+      if (response.config) {
+        // check if url if not the refresh url
+        if (response.config.url !== jwtConstant.refreshUrl) {
+          // is a correct type ??
+          if (angular.isArray(response.data)) {
+            // default statement
+            var decoded = jwtHelper.decodeToken(response.data[0]);
+            // is object ?
+            if (angular.isObject(decoded)) {
+              // list of omit items
+              var omits = [ 'iss', 'sub', 'aud', 'exp', 'nbf', 'iat', 'jti' ];
+              // remove non needed key
+              angular.forEach(omits, function(value) {
+                // remove item
+                delete decoded[value];
+              });
+              // set value
+              response.data = decoded;
+            }
           }
         }
       }
