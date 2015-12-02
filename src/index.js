@@ -33,7 +33,9 @@ angular.module('yocto-angular-jwt', [ 'angular-jwt', 'LocalStorageModule' ])
           enableDelete  : false    // on delete value
         }
       }
-    }
+    },
+    // auto start value
+    autoStart  : false
   };
 
   // default statement
@@ -88,7 +90,7 @@ function ($httpProvider, localStorageServiceProvider, jwtConstantProvider) {
  * @param {Object} jwtConstant constant object to retrieve constant in services
  * @param {Object} $http https://docs.angularjs.org/api/ng/service/$http
  */
-.factory('httpJwtToken', [ 'localStorageService', 'jwtConstant', '$http',
+.service('httpJwtToken', [ 'localStorageService', 'jwtConstant', '$http',
 function(localStorageService, jwtConstant, $http) {
   // default statement
   return {
@@ -98,7 +100,11 @@ function(localStorageService, jwtConstant, $http) {
      */
     refreshToken  : function () {
       // get token
-      $http.get(jwtConstant.refreshUrl).then(function (response) {
+      $http.get(jwtConstant.refreshUrl, {
+        headers : {
+          'x-jwt-ignore-check'  : true
+        }
+      }).then(function (response) {
         // save token
         localStorageService.set('x-jwt-token', response.data);
       }, function () {
@@ -221,12 +227,15 @@ function (jwtHelper, localStorageService, jwtConstant) {
  * @param {Object} jwtConstant constant object to retrieve constant in services
  */
 .run([ '$interval', 'httpJwtToken', 'jwtConstant', function($interval, httpJwtToken, jwtConstant) {
-  // interval of refresh
-  $interval(function() {
-    // refresh token
+  // process an auto start on your app
+  if (jwtConstant.autoStart) {
+    // interval of refresh
+    $interval(function() {
+      // refresh token
+      httpJwtToken.refreshToken();
+    }, jwtConstant.refreshDelay);
+  
+    // first run
     httpJwtToken.refreshToken();
-  }, jwtConstant.refreshDelay);
-
-  // first run
-  httpJwtToken.refreshToken();
+  }
 }]);

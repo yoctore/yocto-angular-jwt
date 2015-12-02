@@ -3,7 +3,7 @@
 // declare a module
 angular.module('myApp', [ 'yocto-angular-jwt' ])
 .config(['jwtConstantProvider', function (jwtConstantProvider) {
-  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'http://localhost:3000/token/refresh' });
+  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'http://localhost:3000/token/refresh', autoStart : true });
 }])
 .controller('formContr', ['$scope', '$http', function($scope, $http) {
   $scope.user = {};
@@ -14,6 +14,8 @@ angular.module('myApp', [ 'yocto-angular-jwt' ])
       email :  user.email,
       pwd   :  user.pwd
     };
+
+    $http.get('http://localhost:3000/home');
 
     console.log('\n --------------------- encoded data = ');
     console.log(data);

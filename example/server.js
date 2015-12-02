@@ -4,7 +4,7 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var cors        = require('cors');
 var path        = require('path');
-var base        = path.normalize(process.cwd() + '/example');
+var base        = path.normalize(process.cwd());
 
 // view engine setup
 app.set('views', base + '/views');
@@ -24,7 +24,7 @@ app.use('/bower_components',  express.static(base + '/bower_components'));
 app.use('/dist',  express.static(path.normalize(base + '/../dist')));
 
 // Return connect page
-app.get('/connect', function(req, res, next) {
+app.get('/', function(req, res, next) {
   res.render('connect');
 });
 

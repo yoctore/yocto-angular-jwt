@@ -36,6 +36,6 @@ angular.module('YOUR-APP', [ 'yocto-angular-jwt' ]);
 ```javascript
 angular.module('YOUR-APP', [ 'yocto-angular-jwt' ])
 .config(['jwtConstantProvider', function (jwtConstantProvider) {
-  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'YOUR-URL' });
+  jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'YOUR-URL', autoStart : true });
 }])
 ```

@@ -1,6 +1,6 @@
 {
   "name": "yocto-angular-jwt",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "An angular utility service to manage access token based on jwt for yocto-jwt node package",
   "scripts": {},
   "author": {
