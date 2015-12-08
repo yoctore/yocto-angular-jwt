@@ -139,7 +139,10 @@ function (jwtHelper, localStorageService, jwtConstant) {
           'x-jwt-ignore-decrypt'  : true
         });
       }
-
+      // stringify data
+      if (_.has(request.data, 'data')) {
+        request.data.data = JSON.stringify(request.data.data);
+      }
       // default statement
       return request;
     },

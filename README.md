@@ -39,3 +39,6 @@ angular.module('YOUR-APP', [ 'yocto-angular-jwt' ])
   jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'YOUR-URL', autoStart : true });
 }])
 ```
+## IMPORTANT
+
+Is you are using `yocto-angular-jwt` without [yocto-jwt](https://www.npmjs.com/package/yocto-jwt) you must unstringify.

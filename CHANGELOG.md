@@ -1,3 +1,7 @@
+## 1.0.6 (2015-12-08)
+
+- Stringify data to normalize with yocto-jwt
+
 ## 1.0.5 (2015-12-02)
 
 - Add an autoStart property to not start refresh token action directly
