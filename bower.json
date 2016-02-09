@@ -1,6 +1,6 @@
 {
   "name": "yocto-angular-jwt",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "An angular utility service to manage access token based on jwt for yocto-jwt node package",
   "main": "dist/yocto-angular-jwt.min.js",
   "moduleType" : "node",
@@ -48,9 +48,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/yocto-angular-services/yocto-angular-jwt.git"
+    "url": "https://github.com/yoctore/yocto-angular-jwt.git"
   },
-  "bugs": "https://gitlab.com/yocto-angular-services/yocto-angular-jwt/issues",
+  "bugs": "https://github.com/yoctore/yocto-angular-jwt/issues",
   "resolutions" : {
     "angular" : "^1.5.0"
   },

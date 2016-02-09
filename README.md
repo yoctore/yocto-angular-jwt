@@ -1,3 +1,5 @@
+![alt text](https://david-dm.org/yoctore/yocto-angular-jwt.svg "Dependencies Status")
+
 ## Overview
 
 This module provide an utility tools for manage access token based on jwt
