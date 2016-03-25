@@ -1,4 +1,7 @@
-![alt text](https://david-dm.org/yoctore/yocto-angular-jwt.svg "Dependencies Status")
+[![Code Climate](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/gpa.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt)
+[![Test Coverage](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/coverage.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt/coverage)
+[![Issue Count](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/issue_count.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt)
+[![Build Status](https://travis-ci.org/yoctore/yocto-angular-jwt.svg?branch=master)](https://travis-ci.org/yoctore/yocto-angular-jwt)
 
 ## Overview
 

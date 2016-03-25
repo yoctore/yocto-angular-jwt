@@ -73,7 +73,7 @@ module.exports = function (grunt) {
     yoctohint     : {
       options  : {},
       all      : [ 'Gruntfile.js' ]
-    },
+    }
   });
 
   // Load the plugins
