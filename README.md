@@ -1,3 +1,5 @@
++[![NPM](https://nodei.co/npm/yocto-angular-jwt.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/yocto-angular-jwt/)
+
 [![Code Climate](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/gpa.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt)
 [![Test Coverage](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/coverage.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt/coverage)
 [![Issue Count](https://codeclimate.com/github/yoctore/yocto-angular-jwt/badges/issue_count.svg)](https://codeclimate.com/github/yoctore/yocto-angular-jwt)
