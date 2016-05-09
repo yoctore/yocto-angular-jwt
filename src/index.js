@@ -6,7 +6,7 @@ angular.module('yocto-angular-jwt', [ 'angular-jwt', 'LocalStorageModule' ])
 /**
  * Create our constant provider for jwt constant
  */
-.provider('jwtConstant', function() {
+.provider('jwtConstant', function () {
   // default config values
   var values = {
     // set to 1 minutes by default
@@ -45,7 +45,8 @@ angular.module('yocto-angular-jwt', [ 'angular-jwt', 'LocalStorageModule' ])
       // extend value
       angular.extend(values, constants);
       // freeze object value with new
-      values = Object.freeze(values);
+      // comment this part to provide possible changes after default config on setup
+      //values = Object.freeze(values);
     },
     // default get fn
     $get : function () {
@@ -202,21 +203,21 @@ function (jwtHelper, localStorageService, jwtConstant) {
     /**
      * Blocks each request to encrypt all data
      */
-    request : function(request) {
+    request : function (request) {
       // default statement
       return httpJwtCore.addAccessToken(request);
     },
     /**
      * After each response completes, decode the data.
      */
-    response : function(response) {
+    response : function (response) {
       // default statement
       return httpJwtCore.decode(response);
     },
     /**
      * After each response completes, decode the data.
      */
-    responseError : function(responseError) {
+    responseError : function (responseError) {
       // default statement
       return httpJwtCore.decode(responseError);
     }
@@ -233,11 +234,11 @@ function (jwtHelper, localStorageService, jwtConstant) {
   // process an auto start on your app
   if (jwtConstant.autoStart) {
     // interval of refresh
-    $interval(function() {
+    $interval(function () {
       // refresh token
       httpJwtToken.refreshToken();
     }, jwtConstant.refreshDelay);
-  
+
     // first run
     httpJwtToken.refreshToken();
   }
