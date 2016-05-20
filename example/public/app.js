@@ -5,7 +5,8 @@ angular.module('myApp', [ 'yocto-angular-jwt' ])
 .config(['jwtConstantProvider', function (jwtConstantProvider) {
   jwtConstantProvider.set({ refreshToken : 30000, refreshUrl : 'http://localhost:3000/token/refresh', autoStart : true });
 }])
-.controller('formContr', ['$scope', '$http', function($scope, $http) {
+.controller('formContr', ['$scope', '$http', 'jwtConstant', function($scope, $http, jwtConstant) {
+
   $scope.user = {};
 
   $scope.send = function(user) {

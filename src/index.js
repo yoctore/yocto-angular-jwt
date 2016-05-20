@@ -87,7 +87,7 @@ angular.module('yocto-angular-jwt', [ 'angular-jwt', 'LocalStorageModule' ])
 .config([ '$httpProvider', 'localStorageServiceProvider', 'jwtConstantProvider',
 function ($httpProvider, localStorageServiceProvider, jwtConstantProvider) {
   // retreive constant here
-  var constants = jwtConstantProvider.$get();
+  var constants = jwtConstantProvider.$get().keys();
 
   // push interceptor
   $httpProvider.interceptors.push('httpJwtInterceptor');

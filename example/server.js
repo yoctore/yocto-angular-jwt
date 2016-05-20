@@ -22,6 +22,7 @@ app.use(cors());
 app.use('/public', express.static(base + '/public'));
 app.use('/bower_components',  express.static(base + '/bower_components'));
 app.use('/dist',  express.static(path.normalize(base + '/../dist')));
+app.use('/src',  express.static(path.normalize(base + '/../src')));
 
 // Return connect page
 app.get('/', function(req, res, next) {
