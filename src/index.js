@@ -38,20 +38,41 @@ angular.module('yocto-angular-jwt', [ 'angular-jwt', 'LocalStorageModule' ])
     autoStart  : false
   };
 
+  /**
+   * Default configure method
+   *
+   * @param {Object} cosntant default constant to use
+   */
+  var configure = function (constants) {
+    // extend value
+    angular.merge(values, constants);
+    // freeze object value with new
+    // remove this for current config value change be change by defined config
+    //values = Object.freeze(values);
+  };
+
   // default statement
   return  {
-    // set values
-    set : function (constants) {
-      // extend value
-      angular.extend(values, constants);
-      // freeze object value with new
-      // comment this part to provide possible changes after default config on setup
-      //values = Object.freeze(values);
-    },
+    /**
+     * Default set method, bind on configure method
+     */
+    set  : configure,
     // default get fn
     $get : function () {
-      // default statement
-      return values;
+      // Default statement
+      return {
+        /**
+         * An accessor to set a value
+         */
+        set : configure,
+        /**
+         * Default get keys value
+         */
+        keys : function () {
+          // return values
+          return values;
+        }
+      }
     }
   };
 })
