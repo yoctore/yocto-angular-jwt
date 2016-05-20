@@ -122,7 +122,7 @@ function(localStorageService, jwtConstant, $http) {
      */
     refreshToken  : function () {
       // get token
-      $http.get(jwtConstant.refreshUrl, {
+      $http.get(jwtConstant.keys().refreshUrl, {
         headers : {
           'x-jwt-ignore-check'  : true
         }
@@ -187,7 +187,7 @@ function (jwtHelper, localStorageService, jwtConstant) {
       // has response config ?
       if (response.config) {
         // check if url if not the refresh url
-        if (response.config.url !== jwtConstant.refreshUrl) {
+        if (response.config.url !== jwtConstant.keys().refreshUrl) {
           // is a correct type ??
           if (angular.isArray(response.data)) {
             // default statement
@@ -253,12 +253,12 @@ function (jwtHelper, localStorageService, jwtConstant) {
  */
 .run([ '$interval', 'httpJwtToken', 'jwtConstant', function($interval, httpJwtToken, jwtConstant) {
   // process an auto start on your app
-  if (jwtConstant.autoStart) {
+  if (jwtConstant.keys().autoStart) {
     // interval of refresh
     $interval(function () {
       // refresh token
       httpJwtToken.refreshToken();
-    }, jwtConstant.refreshDelay);
+    }, jwtConstant.keys().refreshDelay);
 
     // first run
     httpJwtToken.refreshToken();
