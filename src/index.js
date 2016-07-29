@@ -122,11 +122,7 @@ function(localStorageService, jwtConstant, $http) {
      */
     refreshToken  : function () {
       // get token
-      $http.get(jwtConstant.keys().refreshUrl, {
-        headers : {
-          'x-jwt-ignore-check'  : true
-        }
-      }).then(function (response) {
+      $http.get(jwtConstant.keys().refreshUrl).then(function (response) {
         // save token
         localStorageService.set('x-jwt-token', response.data);
       }, function () {
@@ -157,8 +153,7 @@ function (jwtHelper, localStorageService, jwtConstant) {
       if (token !== null) {
         // extend request with access token
         angular.extend(request.headers, {
-          'x-jwt-access-token'    : localStorageService.get('x-jwt-token'),
-          'x-jwt-ignore-decrypt'  : true
+          'x-jwt-access-token'    : localStorageService.get('x-jwt-token')
         });
       }
       // stringify data
@@ -226,7 +221,8 @@ function (jwtHelper, localStorageService, jwtConstant) {
      */
     request : function (request) {
       // default statement
-      return httpJwtCore.addAccessToken(request);
+      return _.includes(request.url, 'token/refresh') ?
+             request : httpJwtCore.addAccessToken(request);
     },
     /**
      * After each response completes, decode the data.
